@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# 拾色 Site
 
-```sh
-pnpm create astro@latest -- --template minimal
+> Life Palette 官方站点 — 协议、隐私政策与支持页面
+
+## 预览
+
+🔗 https://life-palette.github.io/site/
+
+## 页面
+
+| 路径 | 说明 |
+|------|------|
+| `/` | 首页 Landing |
+| `/support` | 支持与常见问题 |
+| `/user-protocol` | 用户协议 |
+| `/privacy-policy` | 隐私政策 |
+
+## 技术栈
+
+- [Astro](https://astro.build/) — 静态站点生成
+- MDX — 内容驱动页面
+- GitHub Actions — 自动部署至 GitHub Pages
+
+## 开发
+
+```bash
+pnpm install
+pnpm dev        # http://localhost:4321
+pnpm build      # 输出到 ./dist
+pnpm preview    # 预览构建产物
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 部署
 
-## 🚀 Project Structure
+推送到 `main` 分支后自动通过 GitHub Actions 构建并部署到 GitHub Pages。
 
-Inside of your Astro project, you'll see the following folders and files:
+## License
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+© 2026 Life Palette. All rights reserved.
