@@ -8,5 +8,5 @@ const isProd = process.env.NODE_ENV === 'production';
 export default defineConfig({
   integrations: [mdx()],
   site: 'https://life-palette.github.io',
-  base: isProd ? '/site' : '/',
+  base: isProd ? '/site/' : '/',
 });
