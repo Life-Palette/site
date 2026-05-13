@@ -1,0 +1,209 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <title>{title} - 拾色</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bg-text" aria-hidden="true">Life Palette</div>
+      <div class="rainbow-accent" aria-hidden="true"></div>
+      <header>
+        <a href="/" class="brand">拾色</a>
+      </header>
+      <article>
+        <h1>{title}</h1>
+        <slot />
+      </article>
+      <footer>
+        <nav>
+          <a href="/user-protocol">用户协议</a>
+          <a href="/privacy-policy">隐私政策</a>
+          <a href="/support">支持</a>
+        </nav>
+        <p class="copyright">© {new Date().getFullYear()} Life Palette. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    line-height: 1.75;
+    color: #222;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+</style>
+
+<style>
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 16vw, 14rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(
+      135deg,
+      rgba(92, 61, 46, 0.03) 0%,
+      rgba(255, 180, 150, 0.04) 50%,
+      rgba(150, 200, 255, 0.03) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .rainbow-accent {
+    position: fixed;
+    top: 3rem;
+    right: 10%;
+    width: 90px;
+    height: 120px;
+    background: linear-gradient(
+      140deg,
+      rgba(255, 170, 170, 0.35) 0%,
+      rgba(255, 200, 140, 0.3) 20%,
+      rgba(255, 230, 150, 0.25) 40%,
+      rgba(170, 230, 190, 0.2) 60%,
+      rgba(150, 200, 255, 0.25) 80%,
+      rgba(200, 170, 255, 0.2) 100%
+    );
+    border-radius: 40% 60% 50% 50%;
+    filter: blur(20px);
+    pointer-events: none;
+    z-index: 0;
+    transform: rotate(-15deg);
+  }
+
+  header {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #5C3D2E;
+    text-decoration: none;
+  }
+
+  article h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #5C3D2E;
+    position: relative;
+    z-index: 1;
+  }
+
+  article :global(h2) {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 2rem 0 0.6rem;
+    color: #333;
+  }
+
+  article :global(h3) {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 1.25rem 0 0.4rem;
+    color: #444;
+  }
+
+  article :global(p) {
+    margin-bottom: 0.75rem;
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  article :global(ul) {
+    margin: 0.4rem 0 1rem 1.25rem;
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  article :global(li) {
+    margin-bottom: 0.2rem;
+  }
+
+  article :global(strong) {
+    color: #333;
+    font-weight: 600;
+  }
+
+  article :global(a) {
+    color: #5C3D2E;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  footer nav a {
+    font-size: 0.8rem;
+    color: #999;
+    text-decoration: none;
+  }
+
+  footer nav a:hover {
+    color: #5C3D2E;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+    color: #ccc;
+  }
+</style>
