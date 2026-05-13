@@ -9,8 +9,8 @@ const { title } = Astro.props;
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@ const { title } = Astro.props;
       <div class="bg-text" aria-hidden="true">Life Palette</div>
       <div class="rainbow-accent" aria-hidden="true"></div>
       <header>
-        <a href="/" class="brand">拾色</a>
+        <a href={import.meta.env.BASE_URL} class="brand">拾色</a>
       </header>
       <article>
         <h1>{title}</h1>
@@ -30,9 +30,9 @@ const { title } = Astro.props;
       </article>
       <footer>
         <nav>
-          <a href="/user-protocol">用户协议</a>
-          <a href="/privacy-policy">隐私政策</a>
-          <a href="/support">支持</a>
+          <a href={`${import.meta.env.BASE_URL}user-protocol`}>用户协议</a>
+          <a href={`${import.meta.env.BASE_URL}privacy-policy`}>隐私政策</a>
+          <a href={`${import.meta.env.BASE_URL}support`}>支持</a>
         </nav>
         <p class="copyright">© {new Date().getFullYear()} Life Palette. All rights reserved.</p>
       </footer>
